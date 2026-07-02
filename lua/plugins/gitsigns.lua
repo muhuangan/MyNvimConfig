@@ -3,28 +3,55 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     config = function()
-        require("gitsigns").setup({
-            -- 在行号区域显示变更符号（保留，便于观察改动）
-            signs = {
-                add = { text = "+" },
-                change = { text = "~" },
-                delete = { text = "_" },
-                topdelete = { text = "‾" },
-                changedelete = { text = "~" },
-                untracked = { text = "┆" },
+        require('gitsigns').setup {
+            signs                        = {
+                add          = { text = '┃' },
+                change       = { text = '┃' },
+                delete       = { text = '_' },
+                topdelete    = { text = '‾' },
+                changedelete = { text = '~' },
+                untracked    = { text = '┆' },
             },
-            -- ★ 开启当前行的 Blame 信息（自动显示）
-            current_line_blame = true,
-            -- 自定义 Blame 显示样式
-            current_line_blame_opts = {
-                delay = 500,      -- 延迟半秒显示，避免光标移动时闪烁
-                virt_text = true, -- 使用虚拟文本显示（直接在行尾显示信息）
+            signs_staged                 = {
+                add          = { text = '┃' },
+                change       = { text = '┃' },
+                delete       = { text = '_' },
+                topdelete    = { text = '‾' },
+                changedelete = { text = '~' },
+                untracked    = { text = '┆' },
             },
-        })
-
-        -- ★ 只保留一个手动 Blame 快捷键（按需查看完整信息）
-        vim.keymap.set("n", "<leader>gb", function()
-            require("gitsigns").blame_line()
-        end, { desc = "Git Blame current line" })
+            signs_staged_enable          = true,
+            signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
+            numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
+            linehl                       = false, -- Toggle with `:Gitsigns toggle_linehl`
+            word_diff                    = false, -- Toggle with `:Gitsigns toggle_word_diff`
+            watch_gitdir                 = {
+                follow_files = true
+            },
+            auto_attach                  = true,
+            attach_to_untracked          = true,
+            current_line_blame           = false, -- Toggle with `:Gitsigns toggle_current_line_blame`
+            current_line_blame_opts      = {
+                virt_text = true,
+                virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
+                delay = 1000,
+                ignore_whitespace = false,
+                virt_text_priority = 100,
+                use_focus = true,
+            },
+            current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+            blame_formatter              = nil, -- Use default
+            sign_priority                = 6,
+            update_debounce              = 100,
+            status_formatter             = nil,   -- Use default
+            max_file_length              = 40000, -- Disable if file is longer than this (in lines)
+            preview_config               = {
+                -- Options passed to nvim_open_win
+                style = 'minimal',
+                relative = 'cursor',
+                row = 0,
+                col = 1
+            },
+        }
     end,
 }
