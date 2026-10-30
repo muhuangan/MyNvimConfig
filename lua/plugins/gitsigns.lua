@@ -53,5 +53,9 @@ return {
                 col = 1
             },
         }
+
+        local gs = require('gitsigns')
+        vim.keymap.set('n', ']c', function() gs.next_hunk() end, { desc = 'Next git hunk' })
+        vim.keymap.set('n', '[c', function() gs.prev_hunk() end, { desc = 'Prev git hunk' })
     end,
 }
