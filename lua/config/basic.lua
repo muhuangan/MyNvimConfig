@@ -1,3 +1,6 @@
+-- *.h 识别为 C 而不是 C++（Neovim 的文件类型检测会读取该变量）
+vim.g.c_syntax_for_h = true
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
