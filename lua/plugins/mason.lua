@@ -44,7 +44,7 @@ return {
             require("conform").setup({
                 formatters_by_ft = {
                     c = { "clang-format" },
-                    markdown = { "prettier" },
+                    markdown = { "prettierd" },
                 },
                 -- ★ 为 prettier 指定参数，包含文件路径以推断解析器
                 formatters = {

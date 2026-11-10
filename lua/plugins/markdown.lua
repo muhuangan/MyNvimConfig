@@ -10,18 +10,7 @@ return {
             vim.g.mkdp_auto_close = 0   -- 切换文件时不关闭预览
             vim.g.mkdp_refresh_slow = 0 -- 实时刷新
             vim.g.mkdp_theme = "light"
-
-            -- 自动启动预览（通过 FileType 自动命令）
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "markdown",
-                callback = function()
-                    local preview_open = vim.fn.exists("g:mkdp_preview_window") == 1
-                    if not preview_open then
-                        vim.cmd("MarkdownPreview")
-                    end
-                end,
-                desc = "Auto-start Markdown preview",
-            })
+            -- (已删除自动启动预览的 autocmd 代码块，防止打开文件就自动弹窗)
         end,
     },
 

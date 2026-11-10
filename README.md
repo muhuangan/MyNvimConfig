@@ -12,7 +12,6 @@ A common nvim configuration
 6. 快捷cmake工具
 7. 底部lualine状态栏显示
 8. nvim-tree侧边栏文件管理器
-9. 快捷nvim内终端
-10. neogit互动式git使用
-11. 标签页功能
-12. 显示代码层级
+9. neogit互动式git使用
+10. 标签页功能
+11. 显示代码层级

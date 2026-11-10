@@ -21,18 +21,14 @@ return {
         "CMakeOpenExecutor", "CMakeCloseExecutor", "CMakeStopExecutor",
         "CMakeOpenRunner", "CMakeCloseRunner", "CMakeStopRunner",
     },
-    dependencies = {
-        "akinsho/toggleterm.nvim",
-    },
     config = function()
         require("cmake-tools").setup({
             cmake_build_directory = "build",
             cmake_runner = {
-                name = "toggleterm",
+                name = "terminal",
                 opts = {
-                    direction = "horizontal",
-                    size = 15,
-                    close_on_exit = false,
+                    split_direction = "horizontal",
+                    split_size = 15,
                 },
             },
         })
