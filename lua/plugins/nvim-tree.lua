@@ -6,6 +6,9 @@ return {
         { "<leader>o", "<cmd>NvimTreeToggle<CR>", desc = "Toggle file tree" },
     },
     opts = {
+        view = {
+            width = 50,
+        },
         actions = {
             open_file = {
                 quit_on_open = true, -- 打开文件后自动关闭树
